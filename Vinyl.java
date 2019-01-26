@@ -4,11 +4,10 @@ public class Vinyl extends Media{
     //instance variables
     private String artist;
     private String vinylLength;
-    private static final String MEDIA_TYPE = "vinyl";
- 
+
     //constructors
-    Vinyl(String title, String genre, int id, String artist, String vinylLength) {
-        super(title, MEDIA_TYPE, genre, id);
+    Vinyl(String title, MediaType mediaType, String genre, int id, String artist, String vinylLength) {
+        super(title, mediaType, genre, id);
         this.artist = artist;
         this.vinylLength = vinylLength;
     }

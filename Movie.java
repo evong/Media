@@ -4,11 +4,10 @@ public class Movie extends Media {
     //instance variables
     private String director;
     private int runningTime;
-    private static final String MEDIA_TYPE = "movie";
- 
+
     //constructor
-    Movie(String title, String genre, int id, String director, int runningTime) {
-        super(title, MEDIA_TYPE, genre, id);
+    Movie(String title, MediaType mediaType, String genre, int id, String director, int runningTime) {
+        super(title, mediaType, genre, id);
         this.director=director;
         this.runningTime=runningTime;
     }

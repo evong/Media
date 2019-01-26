@@ -4,11 +4,10 @@ public class LibraryBook extends Media {
     private String author;
     private String isbn;
     private int pageCount;
-    private static final String MEDIA_TYPE = "book";
- 
+
     //constructors
-    LibraryBook(String title, String genre, int id, String author, String isbn, int pageCount) {
-        super(title, MEDIA_TYPE, genre, id);
+    LibraryBook(String title, MediaType mediaType, String genre, int id, String author, String isbn, int pageCount) {
+        super(title, mediaType, genre, id);
         this.author=author;
         this.isbn=isbn;
         this.pageCount = pageCount;
