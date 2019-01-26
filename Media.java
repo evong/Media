@@ -2,6 +2,7 @@ public class Media {
  
     private String title, mediaType, genre;
     private int id;
+    private static int mediaCount, checkedOutMedia; //M2 HOMEWORK STATIC
     private static final int MIN_ID = 999;
  
     //constructor
@@ -12,6 +13,7 @@ public class Media {
         if(id > MIN_ID ) {
             this.id=id;
         }
+        Media.mediaCount++; //M2HOMEWORK STATIC
     }
  
     //getters and setters
@@ -26,6 +28,14 @@ public class Media {
     }
     public int getId() {
         return id;
+    }
+    //M2 HOMEWORK STATIC
+    public static int getMediaCount(){
+        return Media.mediaCount;
+    }
+    //M2 HOMEWORK STATIC
+    public static int getCheckedOutMedia(){
+        return Media.checkedOutMedia;
     }
  
     public void setTitle(String title) {
@@ -69,10 +79,12 @@ public class Media {
     }
  
     public void borrow() {
+        Media.checkedOutMedia++; //M2HOMEWORK STATIC
         System.out.println("You checked out " + title);
     }
  
     public void turnIn() {
+        Media.checkedOutMedia--; //M2HOMEWORK STATIC
         System.out.println("You returned " + title);
     }
  
