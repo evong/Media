@@ -11,7 +11,7 @@ public class MediaDriver {
         mediaList.add(new LibraryBook("Harry Potter and the Philosopher's Stone", MediaType.LIBRARYBOOK,"Fantasy", 1001, "J. K. Rowling", "0-7475-3269-9",223));
         mediaList.add(new Movie("The Godfather", MediaType.MOVIE, "Crime/Drama", 2000, "Francis Ford Coppola", 177));
         mediaList.add(new Movie("The Avengers", MediaType.MOVIE, "Superhero", 2001, "Joss Whedon", 143));
- 
+
         for(Media i : mediaList) {
             i.borrow();
             if(i instanceof Vinyl) {
@@ -24,5 +24,13 @@ public class MediaDriver {
         System.out.println(Media.getCheckedOutMedia() + " of the items are currently checked out.");
         mediaList.get(0).turnIn();
         System.out.println("There are now " + Media.getCheckedOutMedia() + " items currently checked out.");
+
+        System.out.println("-------------------------Testing Enum Methods--------------------------------------------");
+        System.out.println("Books are found on the 2nd floor.");
+        MediaType.LIBRARYBOOK.locate();
+        System.out.println("Movies are found on the 1st floor.");
+        MediaType.MOVIE.locate();
+        System.out.println("Music can be found on the 1st floor.");
+        MediaType.VINYL.locate();
     }
 }
