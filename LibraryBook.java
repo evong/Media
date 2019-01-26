@@ -1,4 +1,4 @@
-public class LibraryBook extends Media {
+public class LibraryBook extends Media implements Comparable<LibraryBook> {
  
     //instance variables
     private String author;
@@ -9,8 +9,8 @@ public class LibraryBook extends Media {
     //constructors
     LibraryBook(String title, String genre, int id, String author, String isbn, int pageCount) {
         super(title, MEDIA_TYPE, genre, id);
-        this.author=author;
-        this.isbn=isbn;
+        this.author = author;
+        this.isbn = isbn;
         this.pageCount = pageCount;
     }
  
@@ -55,6 +55,14 @@ public class LibraryBook extends Media {
         return false;
     }
  
+    @Override
+    public int compareTo(LibraryBook pBook) {
+        String thisCompareValue = author + super.getTitle();
+        String othCompareValue = pBook.author + pBook.getTitle();
+    	
+        return thisCompareValue.compareTo(othCompareValue);
+    }
+    
     public void placeBookmark() {
         System.out.println("You placed your bookmark on page x");
     }

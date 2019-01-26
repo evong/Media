@@ -16,17 +16,23 @@
    * \- static final String MEDIA_TYPE = "vinyl"
    * \+ listen(): void
 
-* LibraryBook
+* LibraryBook implements Comparable
    * \- String author, isbn
    * \- int pageCount
    * \- static final String MEDIA_TYPE = "book"
    * \+ placeBookmark(): void
    * \+ readBook(): void
+   * \+ compareTo(LibraryBook pBook): int
 
 * Movie
    * \- String director, runningTime
    * \- static final String MEDIA_TYPE = "movie"
    * \+ watchMovie(): void
 
+# Tester
+* BookTester - test comparTo development
+
 # Driver
-* MediaDriver
+* MediaDriver   - driver for hw1
+* CompareTester - driver for hw2
+    * \+ private static padRight(String s, int n): String
