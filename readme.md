@@ -1,6 +1,7 @@
 # Parent Class
 * Media
-   * \- String title, mediaType, genre
+   * \- String title, genre
+   * \- private MediaType mediaType
    * \- int id
    * \- static int mediaCount, checkedOutMedia
    * \- static final int MIN_ID = 999
@@ -14,20 +15,30 @@
 
 * Vinyl
    * \- String artist, vinylLength
-   * \- static final String MEDIA_TYPE = "vinyl"
    * \+ listen(): void
 
-* LibraryBook
+* LibraryBook implements Comparable
    * \- String author, isbn
    * \- int pageCount
-   * \- static final String MEDIA_TYPE = "book"
    * \+ placeBookmark(): void
    * \+ readBook(): void
+   * \+ compareTo(LibraryBook pBook): int
 
 * Movie
    * \- String director, runningTime
-   * \- static final String MEDIA_TYPE = "movie"
    * \+ watchMovie(): void
 
+# Enum class
+* MediaType
+   * VINYL ("1F", "music")
+   * MOVIE ("1F", "movies")
+   * LIBRARYBOOK ("2F", "books")
+   * \- String librarySection, typeOfMedia
+   * \+ private MediaType(String librarySection)
+   * \+ getLibrarySection(): String
+   * \+ locate(): void
+
 # Driver
-* MediaDriver
+* MediaDriver   - driver for hw1
+* CompareTester - driver for hw2
+    * \+ private static padRight(String s, int n): String
