@@ -24,10 +24,11 @@ public class CompareTester {
         for (LibraryBook aBook : bookList) {
             System.out.print(padRight("Book " + lCounter, 10));
             System.out.println(padRight("Author: " + aBook.getAuthor(), 25) + 
-                               "Title: " + aBook.getTitle());        
+            "Title: " + aBook.getTitle());        
             lCounter++;
         }  
-
+        
+        System.out.println("\nLets sort list by Author and Title.\n");
         Collections.sort(bookList);
 
         lCounter = 1;
@@ -51,15 +52,18 @@ public class CompareTester {
         System.out.println("There are currently " + Media.getMediaCount() + " items available in the library.");
         System.out.println(Media.getCheckedOutMedia() + " of the items are currently checked out.\n");
         
-        System.out.println("Checking out two books.");
+        System.out.println("Checking out same two books.");
         bookList.get(0).borrow();
         bookList.get(0).borrow();
         System.out.println(Media.getCheckedOutMedia() + " of the items are currently checked out.\n");
         
-        System.out.println("Returning one book.");
+        System.out.println("Returning one book not checked out.");
         bookList.get(3).turnIn();
         System.out.println("There are now " + Media.getCheckedOutMedia() + " items currently checked out.\n");
-
+        
+        System.out.println("Returning checked out book.");
+        bookList.get(0).turnIn();
+        System.out.println("There are now " + Media.getCheckedOutMedia() + " items currently checked out.\n");
     }
 }
 
