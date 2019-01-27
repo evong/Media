@@ -3,6 +3,7 @@ public class Media {
     private String title, genre;
     private MediaType mediaType;
     private int id;
+    private boolean checkedOut;
     private static int mediaCount, checkedOutMedia; //M2 HOMEWORK STATIC
     private static final int MIN_ID = 999;
  
@@ -14,6 +15,7 @@ public class Media {
         if(id > MIN_ID ) {
             this.id=id;
         }
+        this.checkedOut = false;
         Media.mediaCount++; //M2HOMEWORK STATIC
     }
  
@@ -80,13 +82,25 @@ public class Media {
     }
  
     public void borrow() {
-        Media.checkedOutMedia++; //M2HOMEWORK STATIC
-        System.out.println("You checked out " + title);
+        if(!checkedOut){
+            System.out.println("You checked out " + title);
+            Media.checkedOutMedia++; //M2HOMEWORK STATIC
+            checkedOut = true;
+        }
+        else{
+            System.out.println(title + " is already checked out.");
+        }
     }
  
     public void turnIn() {
-        Media.checkedOutMedia--; //M2HOMEWORK STATIC
-        System.out.println("You returned " + title);
+        if(checkedOut){
+            System.out.println("You returned " + title);
+            Media.checkedOutMedia--; //M2HOMEWORK STATIC
+            checkedOut = false;
+        }
+        else{
+            System.out.println(title + " is already turned in.");
+        }
     }
  
     public void reviewMedia() {
