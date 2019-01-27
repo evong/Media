@@ -2,6 +2,7 @@
 * Media
    * \- String title, mediaType, genre
    * \- int id
+   * \- static int mediaCount, checkedOutMedia
    * \- static final int MIN_ID = 999
    * \+ toString(): String
    * \+ equals(Object obj): boolean
