@@ -32,5 +32,26 @@ public class MediaDriver {
         MediaType.MOVIE.locate();
         System.out.println("Music can be found on the 1st floor.");
         MediaType.VINYL.locate();
+        
+        System.out.println("-------------------------Testing Comparables--------------------------------------------");
+        int compareResult;
+        ArrayList<LibraryBook> bookList = new ArrayList<LibraryBook>();
+        //position 0
+        bookList.add(new LibraryBook("Catch 22", MediaType.LIBRARYBOOK, "Black Comedy", 1000, "Joseph Heller", "0-684-83339-5", 453));
+        bookList.add(new LibraryBook("Harry Potter and the Philosopher's Stone", MediaType.LIBRARYBOOK, "Fantasy", 1001, "J. K. Rowling", "0-7475-3269-9",223));
+        bookList.add(new LibraryBook("Harry Potter new Chapter", MediaType.LIBRARYBOOK, "Fantasy", 1001, "J. K. Rowling", "0-7475-1234-1",223));
+        bookList.add(new LibraryBook("Wow in the World", MediaType.LIBRARYBOOK, "Science", 1100, "Anne Doe", "0-7475-1221-1", 121));
+        bookList.add(new LibraryBook("Fear", MediaType.LIBRARYBOOK, "Political", 1200, "Bob Woodward", "1-5011-7551-3", 121));
+        //position 5
+        
+        LibraryBook thisBook = bookList.get(3);
+        LibraryBook othBook = bookList.get(4);
+        
+        System.out.println("Testing Library Compare to Method\n");
+        System.out.println("Book 1: " + thisBook.getTitle() + " by: " + thisBook.getAuthor());        
+        System.out.println("\nvs\n");        
+        System.out.println("Book 2: " + othBook.getTitle() + " by: " + othBook.getAuthor());        
+        compareResult = thisBook.compareTo(othBook);
+        System.out.println(compareResult);
     }
 }
