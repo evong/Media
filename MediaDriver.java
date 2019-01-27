@@ -24,6 +24,9 @@ public class MediaDriver {
         System.out.println(Media.getCheckedOutMedia() + " of the items are currently checked out.");
         mediaList.get(0).turnIn();
         System.out.println("There are now " + Media.getCheckedOutMedia() + " items currently checked out.");
+        mediaList.get(0).turnIn();
+        System.out.println("There are still " + Media.getCheckedOutMedia() + " items currently checked out.");
+
 
         System.out.println("-------------------------Testing Enum Methods--------------------------------------------");
         System.out.println("Books are found on the 2nd floor.");

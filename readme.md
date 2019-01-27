@@ -1,8 +1,9 @@
 # Parent Class
 * Media
    * \- String title, genre
-   * \- private MediaType mediaType
+   * \- MediaType mediaType
    * \- int id
+   * \- boolean checkedOut
    * \- static int mediaCount, checkedOutMedia
    * \- static final int MIN_ID = 999
    * \+ toString(): String
@@ -41,4 +42,4 @@
 # Driver
 * MediaDriver   - driver for hw1
 * CompareTester - driver for hw2
-    * \+ private static padRight(String s, int n): String
+    * \- static padRight(String s, int n): String
