@@ -7,7 +7,7 @@ public class Movie extends Media {
     private static final MediaType MEDIA_TYPE = MediaType.MOVIE;
 
     //constructor
-    private Movie(MovieBuilder builder) {
+    private Movie(MovieBuilder builder) { // M3 USING BUILDER
         setTitle(builder.title);
         setGenre(builder.genre);
         setMediaType(MEDIA_TYPE);
@@ -28,17 +28,14 @@ public class Movie extends Media {
             this.genre=genre;
             this.id=id;
         }
-
         public MovieBuilder director(String director) {
             this.director=director;
             return this;
         }
-
         public MovieBuilder runningTime(int runningTime) {
             this.runningTime=runningTime;
             return this;
         }
-
         public Movie build() {
             if(id<MIN_ID) {
                 throw new IllegalArgumentException();
