@@ -8,6 +8,8 @@ public class Media {
     private static final int MIN_ID = 999;
  
     //constructor
+    Media() { }
+
     Media(String title, MediaType mediaType, String genre, int id ) {
         this.title=title;
         this.mediaType=mediaType;

@@ -4,12 +4,47 @@ public class Movie extends Media {
     //instance variables
     private String director;
     private int runningTime;
+    private static final MediaType MEDIA_TYPE = MediaType.MOVIE;
 
     //constructor
-    Movie(String title, MediaType mediaType, String genre, int id, String director, int runningTime) {
-        super(title, mediaType, genre, id);
-        this.director=director;
-        this.runningTime=runningTime;
+    private Movie(MovieBuilder builder) {
+        setTitle(builder.title);
+        setGenre(builder.genre);
+        setMediaType(MEDIA_TYPE);
+        setId(builder.id);
+        this.director=builder.director;
+        this.runningTime=builder.runningTime;
+    }
+
+    public static class MovieBuilder{
+        private String title, genre;
+        private int id;
+        private String director = "";
+        private int runningTime = 0;
+        private static final int MIN_ID = 999;
+
+        public MovieBuilder(String title, String genre, int id) {
+            this.title=title;
+            this.genre=genre;
+            this.id=id;
+        }
+
+        public MovieBuilder director(String director) {
+            this.director=director;
+            return this;
+        }
+
+        public MovieBuilder runningTime(int runningTime) {
+            this.runningTime=runningTime;
+            return this;
+        }
+
+        public Movie build() {
+            if(id<MIN_ID) {
+                throw new IllegalArgumentException();
+            }
+            return new Movie(this);
+        }
     }
  
     //getters and setters

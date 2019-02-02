@@ -64,6 +64,15 @@ public class CompareTester {
         System.out.println("Returning checked out book.");
         bookList.get(0).turnIn();
         System.out.println("There are now " + Media.getCheckedOutMedia() + " items currently checked out.\n");
+
+        System.out.println("\n-------------------------Testing Builder Method--------------------------------------------");
+        Movie movie = new Movie.MovieBuilder("Scarface", "Thriller",1000)
+                .director("Brian De Palma")
+                .runningTime(170)
+                .build();
+        System.out.println(movie);
+        // Uncomment to test invalid id
+        // Movie movie2 = new Movie.MovieBuilder("Movietitle", "Genre", 1).build();
     }
 }
 
