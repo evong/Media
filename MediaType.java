@@ -1,6 +1,6 @@
 public enum MediaType {
 
-    VINYL("1F", "music"), MOVIE("1F", "movies"), LIBRARYBOOK("2F", "books");
+    VINYL("1F", "music"), MOVIE("1F", "movies"), LIBRARYBOOK("2F", "books"), CD("1F", "music");
 
     private String librarySection;
     private String typeOfMedia;

@@ -9,6 +9,8 @@ public class MediaFactory {
             media = new Movie.MovieBuilder(title, genre, id).build();
         } else if(type.equals(MediaType.VINYL)) {
             media = new Vinyl(title, genre, id);
+        } else if (type.equals(MediaType.CD)) {
+            media = new CD(title, genre, id);
         } else {
             throw new IllegalArgumentException();
         }
