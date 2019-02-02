@@ -11,11 +11,11 @@ public class CompareTester {
 
         ArrayList<LibraryBook> bookList = new ArrayList<LibraryBook>();
         //position 0
-        bookList.add(new LibraryBook("Catch 22", MediaType.LIBRARYBOOK, "Black Comedy", 1000, "Joseph Heller", "0-684-83339-5", 453));
-        bookList.add(new LibraryBook("Harry Potter new Chapter", MediaType.LIBRARYBOOK, "Fantasy", 1001, "J. K. Rowling", "0-7475-1234-1",223));
-        bookList.add(new LibraryBook("Harry Potter and the Philosopher's Stone", MediaType.LIBRARYBOOK, "Fantasy", 1001, "J. K. Rowling", "0-7475-3269-9",223));
-        bookList.add(new LibraryBook("Wow in the World", MediaType.LIBRARYBOOK, "Science", 1100, "Anne Doe", "0-7475-1221-1", 121));
-        bookList.add(new LibraryBook("Fear", MediaType.LIBRARYBOOK, "Political", 1200, "Bob Woodward", "1-5011-7551-3", 121));
+        bookList.add(new LibraryBook("Catch 22", "Black Comedy", 1000, "Joseph Heller", "0-684-83339-5", 453));
+        bookList.add(new LibraryBook("Harry Potter new Chapter", "Fantasy", 1001, "J. K. Rowling", "0-7475-1234-1",223));
+        bookList.add(new LibraryBook("Harry Potter and the Philosopher's Stone", "Fantasy", 1001, "J. K. Rowling", "0-7475-3269-9",223));
+        bookList.add(new LibraryBook("Wow in the World", "Science", 1100, "Anne Doe", "0-7475-1221-1", 121));
+        bookList.add(new LibraryBook("Fear", "Political", 1200, "Bob Woodward", "1-5011-7551-3", 121));
         //position 5
         int lCounter = 1;
 
@@ -73,6 +73,19 @@ public class CompareTester {
         System.out.println(movie);
         // Uncomment to test invalid id
         // Movie movie2 = new Movie.MovieBuilder("Movietitle", "Genre", 1).build();
+
+        System.out.println("\nTesting Factory Method"); // M3 USING FACTORY
+        Media newLibrary = new Media();
+        newLibrary.addMedia("book", MediaType.LIBRARYBOOK, "mystery", 1000);
+        newLibrary.addMedia("book2", MediaType.LIBRARYBOOK, "romance", 1001);
+        newLibrary.addMedia("movie", MediaType.MOVIE,"thriller", 2001);
+        newLibrary.addMedia("movie2",MediaType.MOVIE, "superhero", 2000);
+        newLibrary.addMedia("vinyl", MediaType.VINYL, "pop", 3000);
+        newLibrary.addMedia("vinyl2", MediaType.VINYL, "rock", 3001);
+
+        for(int i=0;i<newLibrary.getMediaList().size();i++) {
+            System.out.println(newLibrary.getMediaList().get(i));
+        }
     }
 }
 

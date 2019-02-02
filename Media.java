@@ -1,16 +1,23 @@
+import java.util.ArrayList;
+
 public class Media {
  
     private String title, genre;
     private MediaType mediaType;
     private int id;
     private boolean checkedOut;
+
     private static int mediaCount, checkedOutMedia;
+    private ArrayList<Media> mediaList = new ArrayList<Media>();
+
     private static final int MIN_ID = 999;
  
     //constructor
-    Media() { }
+    public Media() {
+        mediaCount++;
+    }
 
-    Media(String title, MediaType mediaType, String genre, int id ) {
+    public Media(String title, MediaType mediaType, String genre, int id ) {
         this.title=title;
         this.mediaType=mediaType;
         this.genre=genre;
@@ -34,11 +41,12 @@ public class Media {
     public int getId() {
         return id;
     }
-    //M2 HOMEWORK STATIC
+    public ArrayList<Media> getMediaList() {
+        return mediaList;
+    }
     public static int getMediaCount(){
         return Media.mediaCount;
     }
-    //M2 HOMEWORK STATIC
     public static int getCheckedOutMedia(){
         return Media.checkedOutMedia;
     }
@@ -56,6 +64,11 @@ public class Media {
         if(id>999) {
             this.id = id;
         }
+    }
+
+    public void addMedia(String title, MediaType type, String genre, int id) {
+        Media media = MediaFactory.newMedia(title, type, genre, id);
+        mediaList.add(media);
     }
  
     @Override

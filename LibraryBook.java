@@ -4,13 +4,18 @@ public class LibraryBook extends Media implements Comparable<LibraryBook> {
     private String author;
     private String isbn;
     private int pageCount;
+    private static final MediaType mediaType = MediaType.LIBRARYBOOK;
 
     //constructors
-    LibraryBook(String title, MediaType mediaType, String genre, int id, String author, String isbn, int pageCount) {
-        super(title, mediaType, genre, id);
+    LibraryBook(String title, String genre, int id, String author, String isbn, int pageCount) {
+        this(title, genre, id);
         this.author = author;
         this.isbn = isbn;
         this.pageCount = pageCount;
+    }
+
+    LibraryBook(String title, String genre, int id) {
+        super(title, mediaType, genre, id);
     }
  
     //getters and setters
