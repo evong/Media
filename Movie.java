@@ -7,7 +7,7 @@ public class Movie extends Media {
     private static final MediaType MEDIA_TYPE = MediaType.MOVIE;
 
     //constructor
-    private Movie(MovieBuilder builder) { // M3 USING BUILDER
+    private Movie(MovieBuilder builder) {
         setTitle(builder.title);
         setGenre(builder.genre);
         setMediaType(MEDIA_TYPE);
