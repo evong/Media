@@ -5,6 +5,7 @@ public class Vinyl extends Media{
     private String artist;
     private String vinylLength;
     private static final MediaType mediaType = MediaType.VINYL;
+    private static final VinylListener listen = new VinylListener();
 
     //constructors
     Vinyl(String title, String genre, int id, String artist, String vinylLength) {
@@ -55,7 +56,8 @@ public class Vinyl extends Media{
         return false;
     }
  
-    public void listen() {
-        System.out.println("You listened to " + getTitle() + " by " + artist);
+    public void listenTo() {
+        System.out.println("Preparing " + getTitle() + " by " + artist);
+        listen.listen();
     }
 }

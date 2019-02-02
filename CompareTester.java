@@ -65,7 +65,7 @@ public class CompareTester {
         bookList.get(0).turnIn();
         System.out.println("There are now " + Media.getCheckedOutMedia() + " items currently checked out.\n");
 
-        System.out.println("\nTesting Builder Method"); // M3 USING BUILDER
+        System.out.println("\n-------------------------Testing Builder Method-------------------------"); // M3 USING BUILDER
         Movie movie = new Movie.MovieBuilder("Scarface", "Thriller",1000)
                 .director("Brian De Palma")
                 .runningTime(170)
@@ -74,17 +74,26 @@ public class CompareTester {
         // Uncomment to test invalid id
         // Movie movie2 = new Movie.MovieBuilder("Movietitle", "Genre", 1).build();
 
-        System.out.println("\nTesting Factory Method"); // M3 USING FACTORY
+        System.out.println("\n-------------------------Testing Factory Method-------------------------"); // M3 USING FACTORY
         Media newLibrary = new Media();
         newLibrary.addMedia("book", MediaType.LIBRARYBOOK, "mystery", 1000);
-        newLibrary.addMedia("book2", MediaType.LIBRARYBOOK, "romance", 1001);
         newLibrary.addMedia("movie", MediaType.MOVIE,"thriller", 2001);
-        newLibrary.addMedia("movie2",MediaType.MOVIE, "superhero", 2000);
         newLibrary.addMedia("vinyl", MediaType.VINYL, "pop", 3000);
-        newLibrary.addMedia("vinyl2", MediaType.VINYL, "rock", 3001);
+        newLibrary.addMedia("cd", MediaType.CD, "classical", 4000);
 
-        for(int i=0;i<newLibrary.getMediaList().size();i++) {
-            System.out.println(newLibrary.getMediaList().get(i));
+        ArrayList<Media> listHolder = newLibrary.getMediaList();
+        for(int i=0;i<listHolder.size();i++) {
+            System.out.println(listHolder.get(i));
+        }
+
+        System.out.println("\n-------------------------Testing Strategy Pattern-------------------------"); // M3 USING STRATEGY
+        for(int i=0;i<listHolder.size();i++) {
+            if(listHolder.get(i) instanceof Vinyl) {
+                ((Vinyl) listHolder.get(i)).listenTo();
+            }
+            if(listHolder.get(i) instanceof CD) {
+                ((CD) listHolder.get(i)).listenTo();
+            }
         }
     }
 }
