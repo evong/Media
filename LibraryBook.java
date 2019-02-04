@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class LibraryBook extends Media implements Comparable<LibraryBook> {
  
     //instance variables
@@ -5,6 +7,8 @@ public class LibraryBook extends Media implements Comparable<LibraryBook> {
     private String isbn;
     private int pageCount;
     private static final MediaType mediaType = MediaType.LIBRARYBOOK;
+
+    public final static Comparator<LibraryBook> LIBRARY_PAGE_COUNT_COMPARATOR = new LibraryBookPageCountComparator();
 
     //constructors
     LibraryBook(String title, String genre, int id, String author, String isbn, int pageCount) {
@@ -58,15 +62,22 @@ public class LibraryBook extends Media implements Comparable<LibraryBook> {
         }
         return false;
     }
- 
+
     @Override
     public int compareTo(LibraryBook pBook) {
         String thisCompareValue = author + super.getTitle();
         String othCompareValue = pBook.author + pBook.getTitle();
-    	
+
         return thisCompareValue.compareTo(othCompareValue);
     }
-    
+
+    private static class LibraryBookPageCountComparator implements Comparator<LibraryBook> {
+        @Override
+        public int compare(LibraryBook book1, LibraryBook book2) {
+            return Integer.compare(book1.pageCount,book2.pageCount);
+        }
+    }
+
     public void placeBookmark() {
         System.out.println("You placed your bookmark on page x");
     }
@@ -75,4 +86,3 @@ public class LibraryBook extends Media implements Comparable<LibraryBook> {
         System.out.println("You read " + getTitle());
     }
 }
- 
